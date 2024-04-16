@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.0.2
 
-* initial release for the map_apptimus package.
+* example and readme files are updated.
