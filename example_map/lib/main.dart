@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       home: MapScreen(
         showRoute: true,
         searchfunction: true,
-        userkey: 'AIzaSyCAW13DZO4MqCDEdyjeTGWp7_kebTFE5E0',
+        userkey: 'your_api_key',
       ),
     );
   }
