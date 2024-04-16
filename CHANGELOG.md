@@ -1,3 +1,3 @@
-## 0.0.2
+## 0.0.3
 
-* example and readme files are updated.
+* missing parameters names are updated.
