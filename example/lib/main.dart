@@ -1,4 +1,4 @@
-import 'package:example_map/screen/map_screen.dart';
+import 'package:example/screen/map_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
