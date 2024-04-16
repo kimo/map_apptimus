@@ -78,4 +78,4 @@ searchservice.searchbar(
 ```
 # License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/ApptimusMobile/map_apptimus.git/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ApptimusMobile/map_apptimus/blob/main/LICENSE) file for details.
