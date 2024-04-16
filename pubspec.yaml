@@ -2,7 +2,7 @@ name: map_apptimus
 description: "A new Flutter package for googlemap integration with search function."
 version: 0.0.1
 homepage: "https://github.com/ApptimusMobile/map_apptimus.git"
-repository: "https://github.com/ApptimusMobile/map_apptimus.git/blob/main/example_map/lib/main.dart"
+repository: "https://github.com/ApptimusMobile/map_apptimus/tree/main/example_map"
 
 
 environment:
