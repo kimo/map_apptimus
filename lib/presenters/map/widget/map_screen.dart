@@ -8,19 +8,32 @@ import 'package:google_places_flutter/google_places_flutter.dart';
 import 'package:google_places_flutter/model/prediction.dart';
 import 'package:map_apptimus/presenters/map/controller/map_controller.dart';
 
+/// A widget representing a screen with a Google Map and search functionality.
+/// A widget representing a screen with a Google Map and search functionality.
 class MapScreen extends StatefulWidget {
-  String userkey; //google map api key
-  bool? searchfunction = false;
-  bool? straightDistance = false;
-  bool? routeDistance = false;
-  bool? showRoute = false;
-  MapScreen({
+  /// The Google Maps API key.
+  final String userkey;
+
+  /// Whether the search functionality is enabled.
+  final bool? searchfunction;
+
+  /// Whether to display the straight distance.
+  final bool? straightDistance;
+
+  /// Whether to display the route distance.
+  final bool? routeDistance;
+
+  /// Whether to show the route.
+  final bool? showRoute;
+
+  /// Creates a [MapScreen] with the given parameters.
+  const MapScreen({
     super.key,
     required this.userkey,
-    this.searchfunction,
-    this.straightDistance,
-    this.routeDistance,
-    this.showRoute,
+    this.searchfunction = false,
+    this.straightDistance = false,
+    this.routeDistance = false,
+    this.showRoute = false,
   });
 
   @override

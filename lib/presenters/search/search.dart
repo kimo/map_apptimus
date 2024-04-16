@@ -5,6 +5,11 @@ import 'package:google_places_flutter/google_places_flutter.dart';
 import 'package:google_places_flutter/model/prediction.dart';
 
 class SearchService {
+  /// Returns a search bar widget.
+  ///
+  /// The [searchController] is the controller for the search text field.
+  /// The [onItemClicked] function is called when an item is clicked in the search results.
+  /// The [userkey] is the Google Maps API key.
   static Container searchbar(TextEditingController searchController,
       Function(String) onItemClicked, String userkey) {
     return Container(
