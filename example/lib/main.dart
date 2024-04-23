@@ -18,9 +18,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: MapScreen(
-        showRoute: true,
+        showRoute: false,
         searchfunction: true,
-        userkey: 'your_api_key',
+        saveLocation: true,
+        // TODO 
+        userkey: 'AIzaSyCL6eBWD1JSonqmNROBZFtsI5Ekj0yl9l4',
       ),
     );
   }

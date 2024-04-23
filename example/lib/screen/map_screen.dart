@@ -14,6 +14,7 @@ class MapScreen extends StatefulWidget {
   bool? straightDistance = false;
   bool? routeDistance = false;
   bool? showRoute = false;
+  bool? saveLocation = false;
   MapScreen({
     super.key,
     required this.userkey,
@@ -21,6 +22,7 @@ class MapScreen extends StatefulWidget {
     this.straightDistance,
     this.routeDistance,
     this.showRoute,
+    this.saveLocation,
   });
 
   @override
@@ -29,6 +31,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   late LatLng centerPosition = const LatLng(9.7637672, 80.0293589);
+  LatLng? mapCenterPosition;
   LatLng? _currentPosition;
   late List<LatLng> _polylineCoordinates = [];
   late final List<LatLng> _polygonCoordinates = [
@@ -88,6 +91,22 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  _saveLocation() {
+    // Save location to database or any other storage
+    Marker marker = Marker(
+      markerId: const MarkerId('savedLocation'),
+      position: centerPosition,
+      infoWindow: const InfoWindow(
+        title: 'Saved Location',
+        snippet: 'This is the location you saved',
+      ),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+    );
+    setState(() {
+      markers.add(marker);
+    });
+  }
+
   Future<void> _getRoute() async {
     if (_currentPosition != null) {
       try {
@@ -121,6 +140,10 @@ class _MapScreenState extends State<MapScreen> {
           : Stack(
               children: [
                 GoogleMap(
+                  onCameraMove: (position) {
+                    mapCenterPosition = position.target;
+                    print('Center Position: $mapCenterPosition');
+                  },
                   onMapCreated: (controller) {
                     _mapController = controller;
                   },
@@ -128,7 +151,7 @@ class _MapScreenState extends State<MapScreen> {
                   myLocationButtonEnabled: true,
                   initialCameraPosition: CameraPosition(
                     target: _currentPosition!,
-                    zoom: 8,
+                    zoom: 15,
                   ),
                   markers: markers,
                   polylines: {
@@ -176,6 +199,14 @@ class _MapScreenState extends State<MapScreen> {
                         ],
                       ),
                     ),
+                  if (widget.saveLocation == true)
+                    Positioned(
+                        bottom: 20,
+                        right: 20,
+                        left: 20,
+                        child: ElevatedButton(
+                            onPressed: _saveLocation,
+                            child: const Text('Save Location'))),
                   if (widget.showRoute == true)
                     Positioned(
                       bottom: 20,
@@ -187,11 +218,20 @@ class _MapScreenState extends State<MapScreen> {
                       ),
                     ),
                   Positioned(
-                    top: 100,
+                    top: 60,
                     left: 10,
                     right: 10,
                     child: searchbar(),
                   ),
+                  const Center(
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.person_pin_circle,
+                        size: 60,
+                      ),
+                      onPressed: null,
+                    ),
+                  )
                 ]
               ],
             ),

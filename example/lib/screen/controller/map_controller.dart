@@ -91,7 +91,7 @@ class MapPageController {
         for (Location location in locations) {
           LatLng searchedLocation =
               LatLng(location.latitude, location.longitude);
-          MapPageController.addMarker(markers, searchedLocation);
+          // MapPageController.addMarker(markers, searchedLocation);
 
           // Calculate straight-line distance
           if (currentPosition != null) {
@@ -107,8 +107,8 @@ class MapPageController {
             LatLng(firstLocation.latitude, firstLocation.longitude);
         updateCenterPosition(searchedLocation);
         mapController
-            .animateCamera(CameraUpdate.newLatLngZoom(searchedLocation, 15));
-        MapPageController.addMarker(markers, searchedLocation);
+            .animateCamera(CameraUpdate.newLatLngZoom(searchedLocation, 16));
+        // MapPageController.addMarker(markers, searchedLocation);
       }
     } catch (e) {
       print('Error searching location: $e');
